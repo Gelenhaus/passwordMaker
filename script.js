@@ -28,9 +28,9 @@ var workingPass = "";
 
 // Getting the password length function.
 function gettingPasswordLength() {
-    var passwordLenth = window.prompt("How long would you like the password to be?");
-    if (passwordLenth >= 8 && passwordLenth < 128) {
-        wantsLength = passwordLenth;
+    var passwordlength = window.prompt("How long would you like the password to be?");
+    if (passwordlength >= 8 && passwordlength < 128) {
+        wantsLength = passwordlength;
     }
     else {
         gettingPasswordLength();
@@ -104,7 +104,9 @@ function askQuestions() {
     for (var i = 0; i < wantsLength; i++) {
         workingPass = workingPass + workingArray[Math.floor(Math.random() * workingArray.length)];
     }
-    console.log("Your password is " + workingPass);
+
+
+
 }
 
 
@@ -131,14 +133,24 @@ generateBtn.addEventListener("click", askQuestions);
 function writePassword() {
     //var password = generatePassword();
     var passwordText = document.querySelector("#password");
+    if (wantLower === true || wantUpper === true || wantNumbers === true || wantSpecial === true) {
 
-    passwordText.value = workingPass;
+        passwordText.value = workingPass;
+    }
+    else {
+        window.alert("TRY AGAIN, selecting at least one character type!");
+        location.reload();
+    }
+
+
 
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
 
+
+
+generateBtn.addEventListener("click", writePassword)
 
 //console.log(workingArray);
 //console.log("Want lower " + wantLower + " Want upper " + wantUpper + " Want numbers " + wantNumbers + " Want special " + wantSpecial + " length is " + wantsLength);
