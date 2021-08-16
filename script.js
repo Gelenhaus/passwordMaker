@@ -1,5 +1,5 @@
 //!!!!!!!!!!!!!!!!!!!Don't forget to figure out how to put the \ symbol into the array without problems.
-
+// Dont forget to make sure that it checks you if you dont select any types
 
 
 
@@ -7,10 +7,13 @@
 var generateBtn = document.querySelector("#generate");
 
 // Create arrays for each the different type of characters to be used in the password.
+/*
 const lowerLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 const upperLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 const specialCharacters = ["`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "[", "{", "]", "}", ";", ":", "'", '"', "<", ",", ">", "/", "?", "|"];
+*/
+
 var workingArray = [];
 
 //Declare so variables that will store the responses to our questions of the user.
@@ -26,7 +29,7 @@ var workingPass = "";
 // Getting the password length function.
 function gettingPasswordLength() {
     var passwordLenth = window.prompt("How long would you like the password to be?");
-    if (passwordLenth >= 8) {
+    if (passwordLenth >= 8 && passwordLenth < 128) {
         wantsLength = passwordLenth;
     }
     else {
@@ -85,7 +88,7 @@ function askQuestions() {
     }
     function addTheSpecial() {
         if (wantSpecial === true) {
-            workingArray.push("`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "[", "{", "]", "}", ";", ":", "'", '"', "<", ",", ">", "/", "?", "|");
+            workingArray.push("`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "[", "{", "]", "}", ";", ":", "\'", '\"', "<", ",", ">", "/", "?", "|", "\\");
         }
     }
     addTheLower();
